@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  LOOPS WITHIN LOOPS, SEQUENCES and MUTATION  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Marc Fernandez.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -31,10 +31,27 @@ def run_test_zero_changer():
     print('  Actual:  ', test1)
 
     # ------------------------------------------------------------------
-    # TODO: 2. Write at least 2 additional tests for the  zero_changer   function.
+    # DONE: 2. Write at least 2 additional tests for the  zero_changer   function.
     #   Try do do some unexpected things like empty lists or an empty tuple.
     # ------------------------------------------------------------------
 
+    # Test 2:
+    test2 = ([0, 0, 0, 0, 0],[4, 0, 0, 0, 5])
+    expected2 = ([1, 2, 3, 4, 5],[4, 6, 7, 8, 5])
+    zero_changer(test2)
+    print()
+    print('Test 2:')
+    print('  Expected:', expected2)
+    print('  Actual:  ', test2)
+
+    # Test 3:
+    test3 = ([8, 4, 0, 9], [77, 0, 0, 0, 0, 0])
+    expected3 = ([8, 4, 1, 9], [77, 2, 3, 4, 5, 6])
+    zero_changer(test3)
+    print()
+    print('Test 3:')
+    print('  Expected:', expected3)
+    print('  Actual:  ', test3)
 
 def zero_changer(tuple_of_lists):
     """
@@ -60,8 +77,16 @@ def zero_changer(tuple_of_lists):
     Type hints:
       :type tuple_of_lists: tuple of list[int]
     """
+    count=0
+    for k in range(len(tuple_of_lists)):
+        sublist=tuple_of_lists[k]
+        for j in range(len(tuple_of_lists[k])):
+            if sublist[j]==0:
+                count=count+1
+                sublist[j]=count
+
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
